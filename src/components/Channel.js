@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import firebase from 'firebase';
+import { StyleSheet } from 'react';
 
 const Channel = ({user = null, db = null}) => {
 
@@ -36,6 +37,10 @@ const Channel = ({user = null, db = null}) => {
         e.preventDefault();
         setNewMessage(e.target.vaue);
         console.log(newMessage)
+        if(newMessage !== 'nice') {
+            alert('not nice');
+            return;
+        }
         if(db) {
             db.collection('messages').add({
                 text: newMessage,
