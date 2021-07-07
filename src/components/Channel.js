@@ -39,6 +39,7 @@ const Channel = ({user = null, db = null}) => {
         console.log(newMessage)
         if(newMessage !== 'nice') {
             alert('not nice');
+            setNewMessage('')
             return;
         }
         if(db) {
@@ -65,8 +66,11 @@ const Channel = ({user = null, db = null}) => {
                         <li key={message.id}>{message.text}</li>
                     ))}
                 </ul>
-                <form onSubmit={handleOnSubmit}>
+                <form onSubmit={handleOnSubmit}
+                    style={styles.form}
+                >
                     <input 
+                        style={styles.input}
                         type="text"
                         value={newMessage}
                         onChange={handleOnChange}
@@ -74,10 +78,31 @@ const Channel = ({user = null, db = null}) => {
                     />
                 </form>
                 <button
+                    style={styles.button}
                     onClick={handleOnSubmit}
-                >Submit</button>
+                >nice</button>
             </>
     );
 };
  
 export default Channel;
+
+
+const styles = {
+    button: {
+        backgroundColor: 'green',
+        height: '5%',
+        width: '8%',
+        position: 'absolute',
+        bottom: '3%',
+        right: '12%',
+    },
+    form: {
+        position: 'absolute',
+        bottom: '3%',
+        left: '2%',
+    },
+    input: {
+        width: '80%',
+    }
+}

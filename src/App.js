@@ -79,7 +79,9 @@ function App() {
     <div>
       {
         user ? (
-          <div>'Welcome to the APP!!!'
+          <div>
+          <br />
+          CHAT?
             <br />
             <Channel 
               user={user}
@@ -87,11 +89,13 @@ function App() {
             />
             <button
             onClick={signOut}
+            style={styles.button}
             >Sign Out</button>
           </div>
         ) : (
             <button
               onClick={signInWithGoogle}
+              style={styles.signin}
             >Sign in with google</button>
         )
       }
@@ -100,3 +104,24 @@ function App() {
 }
 
 export default App;
+
+
+const styles = {
+  button: {
+    backgroundColor: 'red',
+    height: '5%',
+    width: '8%',
+    position: 'absolute',
+    bottom: '3%',
+    right: '2%',
+  },
+  signin: {
+    backgroundColor: 'green',
+    height: '5%',
+    width: '8%',
+    position: 'absolute',
+    top: '3%',
+    left: '2%',
+    color: 'white'
+  },
+}
